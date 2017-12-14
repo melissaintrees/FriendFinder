@@ -164,18 +164,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <!-- script tag for friends.js-->
-<!-- <script src="friends.js"></script> -->
+<script src="friends.js"></script>
 <script>
 
   // initialize an empty array for holding the object:
-var friendsMatchArr = [];
+var newUser;
+var friends = [];
 
 
 $("#formSubmit").click(function(events) {
   events.preventDefault();
 
-// Create newUser data from user input
-      var newUser = {
+// Create an object from user input
+     newUser = {
         nameInput: $("#nameInput").val().trim(),
         picInput: $("#picInput").val().trim(),
         surveyScores: [
@@ -193,10 +194,10 @@ $("#formSubmit").click(function(events) {
       };
       console.log("User Input: ", newUser);
       // push the newUser objects into an JSON array:
-          friendsMatchArr.push(
+          friends.push(
             newUser
           );
-          console.log(JSON.stringify(friendsMatchArr));
+          console.log(JSON.stringify(friends));
 
           // clear the values in the form fields:
           $("#nameInput").val(""),

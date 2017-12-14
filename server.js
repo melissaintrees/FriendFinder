@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(express.static("app/data"));
+
 // ================================================================================
 // ROUTER
 // The below points our server to a series of "route" files.
