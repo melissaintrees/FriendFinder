@@ -15,7 +15,7 @@
 <body>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3 "> Find your next BFF!</h1>
+    <h1 class="display-3 "> Find Your Match</h1>
       <p class="lead">Answer questions below and we will show you a great match.</p>
   </div>
 </div>
@@ -156,7 +156,7 @@
 </div>
 
  <container>
-  <p class=" text-center" >Api Friends List | <a href="https://github.com/melissaintrees">Github Repo</a></p>
+  <p class=" text-center" ><a href="../../api/friends">Api Friends List | <a href="https://github.com/melissaintrees">Github Repo</a></p>
 </container>
 
 <!-- links for bootstrap js libraries-->
@@ -164,6 +164,55 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <!-- script tag for friends.js-->
-<script src="friends.js"></script>
+<!-- <script src="friends.js"></script> -->
+<script>
+
+  // initialize an empty array for holding the object:
+var friendsMatchArr = [];
+
+
+$("#formSubmit").click(function(events) {
+  events.preventDefault();
+
+// Create newUser data from user input
+      var newUser = {
+        nameInput: $("#nameInput").val().trim(),
+        picInput: $("#picInput").val().trim(),
+        surveyScores: [
+          parseInt($("#questionOne").val()),
+          parseInt($("#questionTwo").val()),
+          parseInt($("#questionThree").val()),
+          parseInt($("#questionFour").val()),
+          parseInt($("#questionFive").val()),
+          parseInt($("#questionSix").val()),
+          parseInt($("#questionSeven").val()),
+          parseInt($("#questionEight").val()),
+          parseInt($("#questionNine").val()),
+          parseInt($("#questionTen").val())
+        ]
+      };
+      console.log("User Input: ", newUser);
+      // push the newUser objects into an JSON array:
+          friendsMatchArr.push(
+            newUser
+          );
+          console.log(JSON.stringify(friendsMatchArr));
+
+          // clear the values in the form fields:
+          $("#nameInput").val(""),
+          $("#picInput").val(""),
+          $("#questionOne").val(""),
+          $("#questionTwo").val(""),
+          $("#questionThree").val(""),
+          $("#questionFour").val(""),
+          $("#questionFive").val(""),
+          $("#questionSix").val(""),
+          $("#questionSeven").val(""),
+          $("#questionEight").val(""),
+          $("#questionNine").val(""),
+          $("#questionTen").val("")
+  });
+
+</script>
 </body>
 </html>
