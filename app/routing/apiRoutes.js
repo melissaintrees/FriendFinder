@@ -18,6 +18,7 @@ module.exports = function(app) {
 
   app.post("/api/friends", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/survey.html"));
+    res.json(newObject);
     // res.sendFile(path.join(__dirname, "../data/friends.js"));
 
     //take the result of the user's survey and parse it.

@@ -167,10 +167,6 @@
 <script src="friends.js"></script>
 <script>
 
-  // initialize an empty array for holding the object:
-var newUser;
-var friends = [];
-
 
 $("#formSubmit").click(function(events) {
   events.preventDefault();
@@ -197,8 +193,8 @@ $("#formSubmit").click(function(events) {
           friends.push(
             newUser
           );
-          console.log(JSON.stringify(friends));
-
+          JSON.stringify(friends);
+          console.log(friends);
           // clear the values in the form fields:
           $("#nameInput").val(""),
           $("#picInput").val(""),
