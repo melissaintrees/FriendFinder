@@ -17,20 +17,8 @@ module.exports = function(app) {
   // A POST routes `/api/friends`. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 
   app.post("/api/friends", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/survey.html"));
-    res.json(newObject);
-    // res.sendFile(path.join(__dirname, "../data/friends.js"));
+    console.log("This is the request from the survey: ", req.body)
 
-    //take the result of the user's survey and parse it.
-    // res.json(friends);
-    // newUser = req.body;
-    // nameInput = newUser.nameInput;
-    // picInput = newUser.picInput;
-    // surveyScores = newUser.surveyScores;
-    // console.log(newUser);
-// push the survey results to the json object
-
-    // friends.push(newUser);
   });
 
 

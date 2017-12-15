@@ -160,11 +160,13 @@
 </container>
 
 <!-- links for bootstrap js libraries-->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <!-- script tag for friends.js-->
-<script src="friends.js"></script>
+
 <script>
 
 
@@ -189,12 +191,9 @@ $("#formSubmit").click(function(events) {
         ]
       };
       console.log("User Input: ", newUser);
-      // push the newUser objects into an JSON array:
-          friends.push(
-            newUser
-          );
-          JSON.stringify(friends);
-          console.log(friends);
+
+          sendApiData(newUser);
+
           // clear the values in the form fields:
           $("#nameInput").val(""),
           $("#picInput").val(""),
@@ -208,7 +207,26 @@ $("#formSubmit").click(function(events) {
           $("#questionEight").val(""),
           $("#questionNine").val(""),
           $("#questionTen").val("")
+
   });
+//
+  function sendApiData(friendsData){
+      // this is telling the ajax request what method to use, the url to send the data to, and the actual data to send it to in the form of an object
+      var options = {
+
+        method: "POST",
+        url: "/api/friends",
+        data: {friendsDataKey :friendsData}
+      }
+      // this is taking all the options we laid out and processing the data and sending it out:
+      return $.ajax(options)
+      //
+      .then(function(response){
+        console.log( "This is the response from our api call: ", response);
+      })
+  }
+
+
 
 </script>
 </body>
