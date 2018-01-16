@@ -216,7 +216,7 @@ $("#formSubmit").click(function(events) {
 
         method: "POST",
         url: "/api/friends",
-        data: {friendsDataKey :friendsData}
+        data: friendsData
       }
       // this is taking all the options we laid out and processing the data and sending it out:
       return $.ajax(options)
