@@ -13,7 +13,7 @@ module.exports = function(app) {
   app.get("/api/friends", function(req, res) {
     // this routes the initial friends (what is in the friends.js) array to the api/friends path:
     // console.log("This is the response: ", res);
-    res.json(friends);
+     res.json(friends);
   });
 
 
@@ -22,10 +22,20 @@ module.exports = function(app) {
     // console.log("This is the request: ", req);
     // store the req object in a var called UserInput:
     var userInput = req.body;
-    console.log("this is in the userInput var: ", userInput);
-    var foundUser;
+
+
+    // console.log("this is in the userInput var: ", userInput);
+    var newUserScores = userInput.surveyScores;
+    console.log("number array for the newUser Scores: ", newUserScores);
+
+    // Convert new user's results into a simple array of numbers:
+    // Iterate over the friends array to get a number array of scores for every user in the friends array
+
+    // Convert each user's results into a simple array of numbers:
+    var surveySco = friends[0].surveyScores;
+    console.log("this is the surveyScore from all friends: ", surveySco);
     // i want to push the new UserInput to the friends Object and it works!:
-    friends.push(userInput);
+    // friends.push(userInput);
 
   });
 
