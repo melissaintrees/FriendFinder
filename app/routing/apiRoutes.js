@@ -19,12 +19,13 @@ module.exports = function(app) {
 
   app.post("/api/getfriendname", function(req, res) {
 
-    //req.body = {nameInput: userEntry}
-    var UserName = req.body.nameInput
+    // req.body = {nameInput: userEntry}
+    // get the request from the friends object.nameInput back and assign it to the User Name var?
+    var UserName = req.body.surveyScores
     var foundUser;
 
     for (var i = 0; i < friends.length; i ++){
-        if (UserName === friends[i].nameInput) {
+        if (UserName === friends[i].surveyScores) {
           foundUser = friends[i];
           break
         }

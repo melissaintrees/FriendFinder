@@ -1,5 +1,5 @@
 
-// make a friends array of dummy data to match with user inputs
+// make a friends array of dummy data to match with user inputs:
 
 var friends = [
   {
@@ -33,8 +33,5 @@ var friends = [
     "surveyScores": [1, 1, 1, 1, 2, 3, 4, 3, 2, 5]
   }
 ];
-
-
-
 
 module.exports = friends;
