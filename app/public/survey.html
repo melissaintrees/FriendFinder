@@ -230,8 +230,13 @@ $("#formSubmit").click(function(events) {
           response.forEach(function(profile) {
             var profileDiv = $('<div class="profile">');
             var name = profile.nameInput;
+            var photoURL = profile.picInput;
+            // Put the name in a header.
             var nameHeader = $('<h3>').text(name + ' is your best match');
-            profileDiv.append(nameHeader);
+            // Add a photo with an attr 'src' of the photoURL submitted.
+            var photo = $('<img>').attr('src', photoURL);
+            profileDiv.append(nameHeader, photo);
+            // append these items to the results Div:
             $('#resultsDiv').append(profileDiv);
           });
         }
