@@ -157,6 +157,7 @@
 </div>
 
  <container>
+  <div id="resultsDiv"><p>cccccc</p></div>
   <p class=" text-center" ><a href="../../api/friends">Api Friends List | <a href="https://github.com/melissaintrees">Github Repo</a></p>
 </container>
 
@@ -224,6 +225,17 @@ $("#formSubmit").click(function(events) {
       //
       .then(function(response){
         console.log( "This is the response from our api call: ", response);
+        if (response){
+          $("#resultsDiv").empty();
+          response.forEach(function(profile) {
+            var profileDiv = $('<div class="profile">');
+            var name = profile.nameInput;
+            var nameHeader = $('<h3>').text(name + ' is your best match');
+            profileDiv.append(nameHeader);
+            $('#resultsDiv').append(profileDiv);
+          });
+        }
+
 
       })
   }
