@@ -13,14 +13,14 @@
 
 </head>
 <body>
-  <div class="col-xs-12">
+
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-3 "> Find Your Match</h1>
       <p class="lead">Answer questions below and we will show you a great match.</p>
   </div>
 </div>
-<div class="container">
+<div class="container"><div class="row"><div class="col-lg-8">
   <h3>About You</h3>
     <form>
       <div class="form-group">
@@ -155,7 +155,7 @@
       <br>
     </form>
 </div>
-
+</div></div>
 <container>
   <p class=" text-center" ><a href="../../api/friends">Api Friends List | <a href="https://github.com/melissaintrees/FriendFinder">Github Repo</a></p>
 </container>
@@ -268,7 +268,7 @@ $("#formSubmit").click(function(events) {
             var name = profile.nameInput;
             var photoURL = profile.picInput;
             // Put the name in a header.
-            var nameHeader = $('<h3>').text(name + ' is your best match');
+            var nameHeader = $('<h3>').text(name);
             // Add a photo with an attr 'src' of the photoURL submitted.
             var photo = $('<img>').attr('src', photoURL);
             profileDiv.append(nameHeader, photo);
@@ -279,11 +279,15 @@ $("#formSubmit").click(function(events) {
 
             if (response.length > 1) {
               // Make sure the header is plural.
-              $('.modal-title').text('Your best matches!');
+              $('.modal-title').text('Your best matches:');
             } else {
               // Make sure the header is singular.
-              $('.modal-title').text('Your best match!');
+              $('.modal-title').text('Your best match:');
               }
+              // if (response.length < 1) {
+              //   console.log("sorry");
+              //   $('#errorModal').modal();
+              // }
           // Display the result modal.
           $('#resultModal').modal();
         }
