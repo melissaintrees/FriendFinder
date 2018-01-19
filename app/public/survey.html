@@ -34,8 +34,8 @@
       <div class="form-group">
         <label class="col-form-label h5" for="questionOne">Question 1</label>
         <h5>I like to go dancing at the discotheque.</h5>
-        <select class="form-control" id="questionOne">
-          <option selected></option>
+        <select required class="form-control" id="questionOne">
+          <option value="">Choose</option>
           <option value="1">Strongly Disagree</option>
           <option value="2">Disagree</option>
           <option value="3">Neutral</option>
@@ -225,9 +225,14 @@ $("#formSubmit").click(function(events) {
         ]
       };
       console.log("User Input: ", newUser);
-      if ((newUser.nameInput == "") || (newUser.picInput == "") || (newUser.surveyScores == "")){
+      if ((newUser.nameInput == "") || (newUser.picInput == "") || (newUser.surveyScores.includes(NaN))){
           $('#errorModal').modal();
-      } else {
+      }
+      // else if(newUser.surveyScores.includes(NaN)){
+      //   console.log("Complete your survey");
+      //     $('#errorModal').modal();
+      // }
+      else {
         sendApiData(newUser);
       }
 
