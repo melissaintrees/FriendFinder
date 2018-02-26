@@ -4,10 +4,6 @@ This is a Friend Finding App where users are given questions and then provided w
 
 Express was used to handle the routing and it is deployed to [heroku](https://friend-finder-nu.herokuapp.com/) and/or you can install it on your local machine.
 
-## About
-
-Full Stack Webscraper with an Express server that uses Cheerio &Request to grab articles from NPR's the Record website section, and then stores them in a Mongodb database. The app gives you the option of saving and deleting articles from the database, and also gives you the option of writing notes related to the articles that you save. Data is dispersed using Handlebars and it was designed with the bootstrap 4 framework. It is deployed on [Heroku](https://npr-music-scraper.herokuapp.com/) and/or you can install it on your local machine.
-
 ### Video Demo of the App!
 
 [![Find a Friend With Character](/screenshots/demo_video_cover.png)](https://vimeo.com/257448466 "Find a Friend With Character] - Click to Watch!")
@@ -30,9 +26,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 * [NodeJs](https://nodejs.org/en/) - The programming framework
 * [Express](https://expressjs.com/) - The server framework.
-* [Request](https://cheerio.js.org/) - Jquery for the Server
-* [Mongoose](http://mongoosejs.com/) - Database Management
-* [Handlebars](http://handlebarsjs.com/) - Templating Systemc
 * [Bootstrap](http://getbootstrap.com) - Responsive Framework System
 
 ## Authors
