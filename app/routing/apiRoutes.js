@@ -13,7 +13,7 @@ module.exports = function(app) {
   app.get("/api/friends", function(req, res) {
     // this routes the initial friends (what is in the friends.js) array to the api/friends path:
     // console.log("This is the response: ", res);
-     res.json(friends);
+    res.json(friends);
   });
 
 // POST route for /api/friends that takes in the new user data and responds with the most compatible match.
@@ -63,42 +63,4 @@ module.exports = function(app) {
   });
 };
 
-//     // console.log("this is in the userInput var: ", userInput);
-//     var newUserScores = userInput.surveyScores;
-//     console.log("this is new user scores: ", newUserScores);
 
-
-//     // Convert new user's results into a simple array of numbers:
-//     // Iterate over the friends array to get a number array of scores for every user in the friends array
-
-//     // Convert each user's results into a simple array of numbers:
-
-//     for (var i = 0; i < friends.length; i++){
-//           surveySco = friends[i].surveyScores;
-//            console.log("this is the surveyScore from", friends[i].nameInput, ": ", surveySco);
-//            console.log("this is the survey score from", userInput.nameInput, ": ", newUserScores);
-
-
-//     }
-//     // var surveySco = friends[0].surveyScores;
-
-//     // i want to push the new UserInput to the friends Object and it works!:
-//     // friends.push(userInput);
-
-//   });
-
-// };
-
-// old code dude
-
-    // for (var i = 0; i < friends.length; i ++){
-    //     if (UserName === friends[i].surveyScores) {
-    //       foundUser = friends[i];
-    //       break
-    //     }
-    //   };
-    //   if (foundUser) {
-    //     return res.json(foundUser);
-    // } else {
-    //   return res.json({error: "sorry, this user is not in the system"})
-    // }

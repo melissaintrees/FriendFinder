@@ -8,12 +8,12 @@ var friends = [
     "surveyScores": [5, 4, 5, 1, 3, 2, 1, 3, 2, 5]
   },
   {
-    "nameInput": "Melissa",
-    "picInput":"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAApNAAAAJDdkOTk4OWE4LWEyZWUtNDgxMS04YjFjLTJkYjAyNmJkOTViOQ.jpg",
+    "nameInput": "Abbi",
+    "picInput":"https://media.giphy.com/media/l4Ki9gMgdQYACtdsc/giphy.gif",
     "surveyScores": [1, 5, 4, 1, 2, 3, 4, 1, 5, 4]
   },
   {
-    "nameInput": "Illana",
+    "nameInput": "llana",
     "picInput":"https://media.giphy.com/media/3osxYdZN9vCr0l7AiY/giphy.gif",
     "surveyScores": [5, 3, 5, 1, 2, 1, 5, 5, 3, 1]
   },

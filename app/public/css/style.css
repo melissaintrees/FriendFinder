@@ -1,0 +1,54 @@
+body {
+    background-color: #F6F6F6;
+}
+
+.lead {
+    color: #292E37;
+    font-family: 'Josefin Slab', serif;
+}
+
+.jumbotron {
+    background-color: #8785A2
+}
+
+.display-3 {
+    color: #FFC7C7;
+    font-family: 'Special Elite', cursive;
+}
+
+h3,
+.col-form-label {
+    font-family: 'Special Elite', cursive;
+}
+
+.col-form-label {
+    color: #8785A2;
+    font-size: 25px;
+}
+
+h5,
+.form-control {
+    font-family: 'Josefin Slab', serif;
+    font-size: 20px;
+}
+
+.text-dark a {
+    font-family: 'Josefin Slab', serif;
+    font-size: 20px;
+    color: #8785A2;
+}
+
+.btn {
+    color: #FFC7C7;
+    font-family: 'Special Elite', cursive;
+}
+
+@media screen and (max-width: 540px) {
+.display-3 {
+    font-size: 3rem
+}
+.col-12 {
+    text-align: center;
+}
+
+}
