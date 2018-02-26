@@ -51,4 +51,8 @@ h5,
     text-align: center;
 }
 
+.modal-body img {
+ width: 75%;
+}
+
 }
