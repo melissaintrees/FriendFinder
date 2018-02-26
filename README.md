@@ -10,7 +10,7 @@ Full Stack Webscraper with an Express server that uses Cheerio &Request to grab 
 
 ### Video Demo of the App!
 
-[![Find a Friend With Character](/screenshots/demo_video_cover.png)](https://vimeo.com/257386878 "Npr's The Record Web Scraper - Click to Watch!")
+[![Find a Friend With Character](/screenshots/demo_video_cover.png)](https://vimeo.com/257448466 "Find a Friend With Character] - Click to Watch!")
 
 ### Responsive Design All Screen Mock Up
 
@@ -32,7 +32,7 @@ These instructions will get you a copy of the project up and running on your loc
 * [Express](https://expressjs.com/) - The server framework.
 * [Request](https://cheerio.js.org/) - Jquery for the Server
 * [Mongoose](http://mongoosejs.com/) - Database Management
-* [Handlebars](http://handlebarsjs.com/) - Templating System
+* [Handlebars](http://handlebarsjs.com/) - Templating Systemc
 * [Bootstrap](http://getbootstrap.com) - Responsive Framework System
 
 ## Authors
