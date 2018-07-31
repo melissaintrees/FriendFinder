@@ -1,12 +1,12 @@
-# Find a Friend with Character!
+# A Real Character!
 
-This is a Friend Finding App where users are given questions and then provided with a match in the form of a gif of a celebrity or character in tv or music. The logic behind this game is that it takes the user's info and compares it to the characters answers. Whomever the user's answers match to, they will recieve a gif of that character. 
+This App matches users with characters from TV and Film based on questions they answer. The logic behind this game is that it takes the user's answers and compares them to the how the character would probably answer. Best matches are displayed in a form of a Gif from the giphy API.
 
 Express was used to handle the routing and it is deployed to [heroku](https://friend-finder-nu.herokuapp.com/) and/or you can install it on your local machine.
 
 ### Video Demo of the App!
 
-[![Find a Friend With Character](/screenshots/demo_video_cover.png)](https://vimeo.com/257448466 "Find a Friend With Character] - Click to Watch!")
+[![A Real Character](/screenshots/demo_video_cover.png)](https://vimeo.com/257448466 "A Real Character] - Click to Watch!")
 
 ### Responsive Design All Screen Mock Up
 
