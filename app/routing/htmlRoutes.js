@@ -6,6 +6,8 @@ var path = require("path");
 
 // ROUTING
 // ===============================================================================
+// tells router which path goes to which URL, and put it in a module.exports 
+// so we can then use it in the server
 
 module.exports = function(app) {
 
@@ -25,7 +27,12 @@ module.exports = function(app) {
   });
 
   // // catch-all
-  // app.get("*", function(req, res) {
+  app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/home.html"));
+  });
+
+  // or 
+  // app.use(function (req, res) {
   //   res.sendFile(path.join(__dirname, "../public/home.html"));
   // });
 

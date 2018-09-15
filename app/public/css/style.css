@@ -32,6 +32,13 @@ h5,
     font-size: 20px;
 }
 
+.info-txt {
+    color: darkred;
+    font-size: 20px;
+    font-family: 'Josefin Slab',
+    serif;
+}
+
 .text-dark a {
     font-family: 'Josefin Slab', serif;
     font-size: 20px;
