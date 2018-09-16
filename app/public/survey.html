@@ -29,8 +29,8 @@
         <h3>About You</h3>
         <form>
           <div class="form-group">
-<label class="col-form-label h5 text-dark" for="nameInput">Name <span class="info-txt">(required)</span></label>
-            <input type="text" class="form-control" id="nameInput" placeholder="">
+          <label class="col-form-label h5 text-dark" for="nameInput">Name <span class="info-txt">(required)</span></label>
+            <input type="text" class="form-control form-valid" id="nameInput" placeholder="">
           </div>
           <div class="form-group">
             <label class="col-form-label h5 text-dark" for="picInput" >Link to Photo<h5 class="info-txt">(leave blank to have Avatar generated for you.)</h5></label>
@@ -135,7 +135,7 @@
           <div class="form-group">
             <label class="col-form-label h5" for="questionNine">Question 9</label>
             <h5>One of my greatest dreams is to be on land.</h5>
-            <select class="form-control" id="questionNine">
+            <select class="form-control form-valid" id="questionNine">
               <option value="">Choose</option>
               <option value="1">Strongly Agree</option>
               <option value="2">Agree</option>
@@ -147,7 +147,7 @@
           <div class="form-group">
             <label class="col-form-label h5" for="questionTen">Question 10</label>
             <h5>My console log has a message for you.</h5>
-            <select class="form-control" id="questionTen">
+            <select class="form-control form-valid" id="questionTen">
               <option value="">Choose</option>
               <option value="1">Strongly Agree</option>
               <option value="2">Agree</option>
@@ -171,8 +171,6 @@
   <!-- Error Modal -->
   <div id="errorModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
-
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -180,8 +178,7 @@
         </div>
       </div>
     </div>
-
-  </div>
+  </div> 
 
   <!-- Result Modal -->
   <div id="resultModal" class="modal fade" role="dialog">
@@ -192,7 +189,12 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h3 class="modal-title">Your best match!</h3>
         </div>
-        <div class="modal-body" id="modalContent"></div>
+        <div class="modal-body" id="modalContent">
+
+          <h2 id="match-name"></h2>
+          <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+
+        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -220,17 +222,33 @@
       avatars += possible.charAt(Math.floor(Math.random() * possible.length));
       return avatars;
     }
-    if ($("#picInput").val() == ""){
-      avatars = makeImage();
-    } else {
-      avatars = $("#picInput").val().trim()
-    }
+
       // makeImage();
       console.log("in avatars: ", avatars);
 
+      // Form validation
+      function validateForm() {
+        var isValid = true;
+        $(".form-valid").each(function () {
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+        if ($("#picInput").val() == "") {
+          avatars = makeImage();
+        } else {
+          avatars = $("#picInput").val().trim()
+        }
+
+        return isValid;
+      }
+
+
 
       // Create an object from user input
-      newUser = {
+    if (validateForm()) {
+      // Create an object for the user's data
+      var newUser = {
         nameInput: $("#nameInput").val().trim(),
         picInput: avatars,
         surveyScores: [
@@ -246,32 +264,6 @@
           $("#questionTen").val()
         ]
       };
-      console.log("User Input: ", newUser);
-      if ((newUser.nameInput == "") || (newUser.surveyScores.includes(NaN))) {
-        $('#errorModal').modal();
-      } else {
-        sendApiData(newUser);
-      }
-
-      // clear the values in the form fields:
-      $("#nameInput").val(""),
-        $("#picInput").val(""),
-        $("#questionOne").val(""),
-        $("#questionTwo").val(""),
-        $("#questionThree").val(""),
-        $("#questionFour").val(""),
-        $("#questionFive").val(""),
-        $("#questionSix").val(""),
-        $("#questionSeven").val(""),
-        $("#questionEight").val(""),
-        $("#questionNine").val(""),
-        $("#questionTen").val("")
-    });
-    //
-
-
-
-    function sendApiData(friendsData) {
       // this is telling the ajax request what method to use, 
       //the url to send the data to, and the actual data to 
       // send it to in the form of an object
@@ -279,7 +271,7 @@
 
         method: "POST",
         url: "/api/friends",
-        data: friendsData
+        data: newUser
       }
       // this is taking all the options we laid out and processing the data 
       // and sending it out:
@@ -299,6 +291,7 @@
   
               // Put the name in a header.
               var nameHeader = $('<h3>').text(name);
+                console.log(nameHeader);
               // Add a photo with an attr 'src' of the photoURL submitted.
               var photo = $('<img>').attr('src', photoURL);
               profileDiv.append(nameHeader, photo);
@@ -312,13 +305,79 @@
             //   $('.modal-title').text('Your best matches:');
             // } else {
               // Make sure the header is singular.
-              $('.modal-title').text('Your best match:');
+              // $('.modal-title').text('Your best match:');
             // }
             // Display the result modal.
             $('#resultModal').modal();
+            resetfields();
           }
         });
-    }
+      } else {
+        // alert("npe")
+        // Display the error modal.
+        $('#errorModal').modal();
+      }
+    });
+
+
+  function resetfields() {
+
+    // clear the values in the form fields:
+    $("#nameInput").val(""),
+      $("#picInput").val(""),
+      $("#questionOne").val(""),
+      $("#questionTwo").val(""),
+      $("#questionThree").val(""),
+      $("#questionFour").val(""),
+      $("#questionFive").val(""),
+      $("#questionSix").val(""),
+      $("#questionSeven").val(""),
+      $("#questionEight").val(""),
+      $("#questionNine").val(""),
+      $("#questionTen").val("")
+  }
+      // console.log("User Input: ", newUser);
+      // if ((newUser.nameInput === "")) {
+      //   return $('#errorModal').modal();
+      // } else {
+      //   sendApiData(newUser);
+      // }
+    //   function resetnewUser(){
+    //     // clear the values in the form fields:
+    //     newUser = {
+    //       nameInput: $("#nameInput").val().trim(),
+    //       picInput: avatars,
+    //       surveyScores: [
+    //         // $("#questionOne").val(),
+    //         // $("#questionTwo").val(),
+    //         // $("#questionThree").val(),
+    //         // $("#questionFour").val(),
+    //         // $("#questionFive").val(),
+    //         // $("#questionSix").val(),
+    //         // $("#questionSeven").val(),
+    //         // $("#questionEight").val(),
+    //         $("#questionNine").val(),
+    //         $("#questionTen").val()
+    //       ]
+    //     }
+    //     $("#nameInput").val(""),
+    //       $("#picInput").val(""),
+    //       $("#questionOne").val(""),
+    //       $("#questionTwo").val(""),
+    //       $("#questionThree").val(""),
+    //       $("#questionFour").val(""),
+    //       $("#questionFive").val(""),
+    //       $("#questionSix").val(""),
+    //       $("#questionSeven").val(""),
+    //       $("#questionEight").val(""),
+    //       $("#questionNine").val(""),
+    //       $("#questionTen").val("")
+    //   }
+
+    // });
+    // //
+
+
   </script>
 </body>
 
