@@ -2,7 +2,7 @@
 
 This App matches users with characters from TV and Film based on questions they answer. The logic behind this game is that it takes the user's answers and compares them to the how the character would probably answer. Best matches are displayed in a form of a Gif from the giphy API.
 
-Express was used to handle the routing and it is deployed to [heroku](https://arealcharacter.herokuapp.com/) and/or you can install it on your local machine.
+Express was used to handle the routing and it is available on: [heroku](https://arealcharacter.herokuapp.com/) and/or you can install it on your local machine.
 
 ### Video Demo of the App!
 
